@@ -51,7 +51,7 @@
       <div class="main-content">
         <section class="section">
           <div class="section-header">
-            <h1>Blank Page</h1>
+            <h1>@yield('sub-judul')</h1>
           </div>
           @yield('content')
           <div class="section-body">
