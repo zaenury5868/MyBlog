@@ -9,4 +9,7 @@ class Tags extends Model
 {
     use HasFactory;
     protected $fillable = ['name', 'slug'];
+    public function posts(){
+        return $this->belongsTo('App\Models\Post');
+    }
 }
