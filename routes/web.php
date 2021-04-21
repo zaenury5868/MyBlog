@@ -21,3 +21,4 @@ Route::get('/home', function () {
 });
 
 Route::resource('/category', 'CategoryController');
+Route::resource('/tag', 'TagController');
