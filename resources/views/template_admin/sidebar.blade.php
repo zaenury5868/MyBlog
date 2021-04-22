@@ -14,6 +14,7 @@
             <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-book-open"></i> <span>Post</span></a>
             <ul class="dropdown-menu">
               <li><a class="nav-link" href="{{route('post.index')}}">List Post</a></li>
+              <li><a class="nav-link" href="{{route('post.tampil_hapus')}}">List Post Trash</a></li>
             </ul>
           </li>
           <li class="nav-item dropdown">
