@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Models\Category;
 use App\Models\Tags;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
@@ -53,11 +54,12 @@ class PostController extends Controller
             'category_id' => $request->category_id,
             'content' => $request->content,
             'gambar' => 'public/uploads/posts/'.$new_gambar,
-            'slug' => Str::slug($request->judul)
+            'slug' => Str::slug($request->judul),
+            'users_id' => Auth::id()
         ]);
         $post->tags()->attach($request->tags);
         $gambar->move('public/uploads/posts/', $new_gambar);
-        return redirect()->back()->with('success', 'Postingan berhasil disimpan');
+        return redirect()->route('post.index')->with('success', 'Postingan berhasil disimpan');
     }
 
     /**

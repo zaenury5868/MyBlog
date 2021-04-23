@@ -12,17 +12,21 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes();
+Route::get('/', 'BlogController@index');
+// Route::get('/isi_post', function(){
+//     return view('blog.isi_post');
+// });
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/isi-post/{slug}', 'BlogController@isi_blog')->name('blog.isi');
+
+Route::group(['middleware' => 'auth'], function(){
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::resource('/category', 'CategoryController');
+    Route::resource('/tag', 'TagController');
+    Route::get('/post/hapus', 'PostController@tampil_hapus')->name('post.tampil_hapus');
+    Route::get('/post/restore/{id}', 'PostController@restore')->name('post.restore');
+    Route::delete('/post/kill/{id}', 'PostController@kill')->name('post.kill');
+    Route::resource('/post', 'PostController');
+    Route::resource('/user', 'UserController');
 });
-Route::get('/home', function () {
-    return view('home');
-})->name('home');
-
-Route::resource('/category', 'CategoryController');
-Route::resource('/tag', 'TagController');
-Route::get('/post/hapus', 'PostController@tampil_hapus')->name('post.tampil_hapus');
-Route::get('/post/restore/{id}', 'PostController@restore')->name('post.restore');
-Route::delete('/post/kill/{id}', 'PostController@kill')->name('post.kill');
-Route::resource('/post', 'PostController');
