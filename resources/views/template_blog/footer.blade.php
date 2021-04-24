@@ -20,14 +20,12 @@
 				</div>
 				<div class="col-md-3">
 					<div class="footer-widget">
-						<h3 class="footer-title">Categories</h3>
+						<h3 class="footer-title">kategori</h3>
 						<div class="category-widget">
 							<ul>
-								<li><a href="#">Lifestyle <span>451</span></a></li>
-								<li><a href="#">Fashion <span>230</span></a></li>
-								<li><a href="#">Technology <span>40</span></a></li>
-								<li><a href="#">Travel <span>38</span></a></li>
-								<li><a href="#">Health <span>24</span></a></li>
+								@foreach($category_widget as $hasil)
+					                <li><a href="{{ route('blog.category', $hasil->slug) }}">{{ $hasil->name }}</a></li>
+				                @endforeach
 							</ul>
 						</div>
 					</div>
@@ -37,17 +35,9 @@
 						<h3 class="footer-title">Tags</h3>
 						<div class="tags-widget">
 							<ul>
-								<li><a href="#">Social</a></li>
-								<li><a href="#">Lifestyle</a></li>
-								<li><a href="#">Blog</a></li>
-								<li><a href="#">Travel</a></li>
-								<li><a href="#">Technology</a></li>
-								<li><a href="#">Fashion</a></li>
-								<li><a href="#">Life</a></li>
-								<li><a href="#">News</a></li>
-								<li><a href="#">Magazine</a></li>
-								<li><a href="#">Food</a></li>
-								<li><a href="#">Health</a></li>
+                                @foreach($category_widget as $tag)
+								    <li><a href="#">{{ $tag->name }}</a></li>
+				                @endforeach
 							</ul>
 						</div>
 					</div>
@@ -71,18 +61,17 @@
 			<div class="footer-bottom row">
 				<div class="col-md-6 col-md-push-6">
 					<ul class="footer-nav">
-						<li><a href="index.html">Home</a></li>
-						<li><a href="about.html">About Us</a></li>
-						<li><a href="contact.html">Contacts</a></li>
-						<li><a href="#">Advertise</a></li>
-						<li><a href="#">Privacy</a></li>
+						<li><a href="{{url('')}}">Beranda</a></li>
+						<li><a href="#">Tentang Saya</a></li>
+						<li><a href="contact.html">Kontak</a></li>
+						<li><a href="#">Privasi</a></li>
 					</ul>
 				</div>
 				<div class="col-md-6 col-md-pull-6">
 					<div class="footer-copyright">
-						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>.Downloaded from <a href="https://themeslab.org/" target="_blank">Themeslab</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        &copy;<script>document.write(new Date().getFullYear());</script>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 					</div>
 				</div>
 			</div>
@@ -97,6 +86,16 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	<script src="{{asset('public/frontend/js/bootstrap.min.js')}}"></script>
 	<script src="{{asset('public/frontend/js/jquery.stellar.min.js')}}"></script>
 	<script src="{{asset('public/frontend/js/main.js')}}"></script>
+    <script src="https://cdn.jsdelivr.net/gh/fcmam5/nightly.js@v1.0/dist/nightly.min.js"></script>
+    <script id="dsq-count-scr" src="//zaenury5868.disqus.com/count.js" async></script>
+    <script type="text/javascript">
+        // Persistence disabled
+        var Nightly = new Nightly();
+        document.getElementById("btn").addEventListener("click", function(){
+          Nightly.toggle();
+        });
+
+    </script>
 
 </body>
 

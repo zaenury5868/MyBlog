@@ -8,8 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Tags extends Model
 {
     use HasFactory;
+    protected $table = 'tags';
     protected $fillable = ['name', 'slug'];
     public function posts(){
-        return $this->belongsTo('App\Models\Post');
+        return $this->belongsToMany('App\Models\Post');
     }
 }
